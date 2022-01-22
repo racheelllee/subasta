@@ -1,22 +1,30 @@
 [
     {   "id": "994df41c-cabe-484e-aa4b-b8795667cb6e",
         "name": "pikachu", 
-        "descripcion":"Pikachu that can generate powerful electricity have cheek sacs that are extra soft and super stretchy.",
-        "price": [6]
+        "description":"Pikachu that can generate powerful electricity have cheek sacs that are extra soft and super stretchy.",
+        "price": [6],
+        "status": "available",
+        "delivery": "2.7"
     },
     {   "id": "91112d7f-4f67-4d1b-b3d5-53a9fa4f4bb7",
         "name": "Squirtle", 
-        "descripcion":"When it retracts its long neck into its shell, it squirts out water with vigorous force.",
-        "price": [6]
+        "description":"When it retracts its long neck into its shell, it squirts out water with vigorous force.",
+        "price": [6],
+        "status": "available",
+        "delivery": "2.7"
     },
     {   "id": "8993b640-3225-47aa-b2c3-b6622afb6812",
         "name": "Charmander", 
-        "descripcion":"It has a preference for hot things. When it rains, steam is said to spout from the tip of its tail",
-        "price": [6]
+        "description":"It has a preference for hot things. When it rains, steam is said to spout from the tip of its tail",
+        "price": [6],
+        "status": "available",
+        "delivery": "2.7"
     },
     {   "id": "cb82489c-3f0a-4da6-902c-00d2e4266ab5",
         "name": "Charizard", 
-        "descripcion":"It spits fire that is hot enough to melt boulders. It may cause forest fires by blowing flames",
-        "price": [6]
+        "description":"It spits fire that is hot enough to melt boulders. It may cause forest fires by blowing flames",
+        "price": [6],
+        "status": "available",
+        "delivery": "2.7"
     }
 ]
