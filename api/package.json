@@ -1,0 +1,14 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "api subasta",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "author": "Rachel Market",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.2"
+  }
+}
