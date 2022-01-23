@@ -1,11 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import { List, Avatar } from 'antd';
+import { List, Avatar, Divider } from 'antd';
 import Menu from './Menu'
+import socketIOClient from 'socket.io-client'
 
+
+const socket = socketIOClient('http://localhost:3030')
 
 const Home = () => {
     const [loading, setLoading] = useState(false);
     const [data, setData] = useState([]);
+    const [flag, setFlag] = useState(false);
 
     const loadMoreData = () => {
         if (loading) {
@@ -15,9 +19,9 @@ const Home = () => {
         fetch('http://localhost:3030')
             .then(res => res.json())
             .then(body => {
-                console.log(body)
                 setData(body);
                 setLoading(false);
+                
             })
             .catch(() => {
                 setLoading(false);
@@ -26,7 +30,25 @@ const Home = () => {
 
     useEffect(() => {
         loadMoreData()
+
+        return ()=>{
+            socket.disconnect()
+        }
     }, []);
+
+    useEffect(() => {
+        if(data.length && flag === false) {
+            setFlag(true)
+            socket.on("ProductoActualizado", (item) => {
+                let oldDatas = [ ...data ]
+                let oldIndex = oldDatas.findIndex(e => e.id == item.id)
+                if(oldIndex > -1) {
+                    oldDatas[oldIndex] = item
+                    setData(oldDatas) 
+                }
+            })
+        }
+    }, [data]);
 
     return (
         <div
@@ -47,7 +69,10 @@ const Home = () => {
                             title={item.name}
                             description={item.description}
                         />
-                        <Menu idProduct={item.id} />
+                        {item.status !== 'closed' ?
+                        <Menu idProduct={item.id} status={item.status}/>
+                        : <div>Closed</div>
+                        }
                     </List.Item>
                 )}
             />
